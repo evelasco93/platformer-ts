@@ -1,6 +1,6 @@
 import { KaboomCtx } from "kaboom";
-import { scale } from "./common/constants";
-import { ISpawnPoints } from "./common/interfaces";
+import { scale } from "../common/constants";
+import { ISpawnPoints } from "../common/interfaces";
 
 export async function createMap(k: KaboomCtx, name: string) {
   const mapData = await (await fetch(`./${name}.json`)).json();

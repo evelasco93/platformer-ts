@@ -1,6 +1,6 @@
 import { GameObj, KaboomCtx } from "kaboom";
-import { scale } from "./common/constants";
-import { PlayerGameObj } from "./common/types";
+import { scale } from "../common/constants";
+import { PlayerGameObj } from "../common/types";
 
 // creating Player class to make it cleaner
 export class Player {

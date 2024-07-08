@@ -1,10 +1,10 @@
 import { GameObj } from "kaboom";
 import { Animations } from "./common/animations";
-import { Player } from "./entities";
+import { Player } from "./utils/player";
 import { ISpriteSpecs } from "./common/interfaces";
 import { PlayerGameObj } from "./common/types";
-import { k } from "./kaboomCtx";
-import { createMap } from "./utils";
+import { k } from "./common/kaboomCtx";
+import { createMap } from "./utils/createmap";
 
 // basic settings for the sprite being used for the map
 export const spriteSettings: ISpriteSpecs = {
