@@ -46,7 +46,6 @@ async function gameSetup() {
       level1SpawnPoints.player[0].y
     );
 
-
     Player.setControls(k, player as PlayerGameObj);
     k.add(player);
     k.camScale(k.vec2(0.7, 0.7));
