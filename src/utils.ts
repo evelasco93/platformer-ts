@@ -35,5 +35,6 @@ export async function createMap(k: KaboomCtx, name: string) {
       }
     }
   }
+
   return { mapLayout, spawnPoints };
 }

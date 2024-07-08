@@ -17,6 +17,13 @@ export interface IAnimFrameSpecs {
   loop: boolean;
 }
 
+export interface IPlayerStatus {
+  speed: number;
+  direction: string;
+  isInhaling: boolean;
+  isFull: boolean;
+}
+
 export interface SpriteAnim {
   [key: string]: number | IAnimFrameSpecs;
 }
