@@ -1,6 +1,6 @@
 import kaboom from "kaboom";
-import { IKaboomSettings } from "./common/interfaces";
-import { scale } from "./common/constants";
+import { IKaboomSettings } from "./interfaces";
+import { scale } from "./constants";
 
 // Defining the base settings for our kaboom instance
 
