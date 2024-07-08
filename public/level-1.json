@@ -191,7 +191,7 @@
                 {
                  "height":0,
                  "id":13,
-                 "name":"Player",
+                 "name":"player",
                  "point":true,
                  "rotation":0,
                  "type":"",
@@ -203,7 +203,7 @@
                 {
                  "height":0,
                  "id":14,
-                 "name":"Flame",
+                 "name":"flame",
                  "point":true,
                  "rotation":0,
                  "type":"",
@@ -215,7 +215,7 @@
                 {
                  "height":0,
                  "id":15,
-                 "name":"Flame",
+                 "name":"flame",
                  "point":true,
                  "rotation":0,
                  "type":"",
@@ -227,7 +227,7 @@
                 {
                  "height":0,
                  "id":16,
-                 "name":"Bird",
+                 "name":"bird",
                  "point":true,
                  "rotation":0,
                  "type":"",
@@ -239,7 +239,7 @@
                 {
                  "height":0,
                  "id":17,
-                 "name":"Bird",
+                 "name":"bird",
                  "point":true,
                  "rotation":0,
                  "type":"",
@@ -251,7 +251,7 @@
                 {
                  "height":0,
                  "id":18,
-                 "name":"Enemy",
+                 "name":"enemy",
                  "point":true,
                  "rotation":0,
                  "type":"",
