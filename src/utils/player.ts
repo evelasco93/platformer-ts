@@ -1,6 +1,7 @@
 import { GameObj, KaboomCtx } from "kaboom";
 import { scale } from "../common/constants";
 import { PlayerGameObj } from "../common/types";
+import { globalGameState } from "../common/state";
 
 // creating Player class to make it cleaner
 export class Player {
@@ -34,8 +35,7 @@ export class Player {
 
       if (player.hp() === 0) {
         k.destroy(player);
-        k.go("level-1");
-        //   k.go(globalGameState.currentScene); #TODO: create method for auto changing level or resetting
+        k.go(globalGameState.currentScene);
         return;
       }
 
@@ -96,7 +96,7 @@ export class Player {
     return player;
   }
 
-  static setControls(k: KaboomCtx, player: PlayerGameObj) {
+  static setPlayerControls(k: KaboomCtx, player: PlayerGameObj) {
     const inhaleEffectRef = k.get("inhaleEffect")[0];
     k.onKeyDown((key) => {
       switch (key) {
