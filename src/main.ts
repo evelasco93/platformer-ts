@@ -45,6 +45,7 @@ async function gameSetup() {
     globalGameState.setCurrentScene("level-1");
     globalGameState.setNextScene("level-2");
     k.setGravity(2100);
+    let isMuted = false;
     const level1Music = k.play("level-1-music", { loop: true });
     k.add([
       k.rect(k.width(), k.height()),
@@ -95,9 +96,29 @@ async function gameSetup() {
       });
     }
 
-    k.onKeyDown(() => {
+    k.onKeyDown((key) => {
+      if(key !== "m"){
       instructions.destroy();
+      }
     });
+
+    const muteButton = k.add([
+      k.text("Music: ON", { size: 24 }),
+      k.fixed(),
+      "muteButton"
+  ]);
+
+  k.onKeyPress((key) => {
+    if (key === "m") {
+      isMuted = !isMuted;
+      if (isMuted) {
+          level1Music.stop();
+          muteButton.text = "Music: OFF";
+      } else {
+          level1Music.play();
+          muteButton.text = "Music: ON";
+      }
+    }})
 
   });
 
@@ -105,6 +126,7 @@ async function gameSetup() {
     globalGameState.setCurrentScene("level-2");
     globalGameState.setNextScene("level-1");
     k.setGravity(2100);
+    let isMuted = false;
     const level2Music = k.play("level-2-music", { loop: true });
     k.add([
       k.rect(k.width(), k.height()),
@@ -147,6 +169,25 @@ async function gameSetup() {
         );
       });
     }
+
+    const muteButton = k.add([
+      k.text("Music: ON", { size: 24 }),
+      k.fixed(),
+      "muteButton"
+  ]);
+
+  k.onKeyPress((key) => {
+    if (key === "m") {
+      isMuted = !isMuted;
+      if (isMuted) {
+          level2Music.stop();
+          muteButton.text = "Music: OFF";
+      } else {
+          level2Music.play();
+          muteButton.text = "Music: ON";
+      }
+    }})
+
   });
 
   k.scene("end", () => {}); //TODO: Implement ending scene
