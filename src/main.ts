@@ -30,6 +30,8 @@ async function gameSetup() {
   await k.loadSprite("assets", "./platformer-sprite.png", spriteSettings);
   k.loadSprite("level-1", "./level-1.png");
   k.loadSprite("level-2", "./level-2.png");
+  k.loadSound("level-1-music", "./level-1.mp3");
+  k.loadSound("level-2-music", "./level-2.mp3");
 
   const { mapLayout: level1Layout, spawnPoints: level1SpawnPoints } =
     await createMap(k, "level-1");
@@ -41,6 +43,7 @@ async function gameSetup() {
     globalGameState.setCurrentScene("level-1");
     globalGameState.setNextScene("level-2");
     k.setGravity(2100);
+    const level1Music = k.play("level-1-music", { loop: true });
     k.add([
       k.rect(k.width(), k.height()),
       k.color(k.Color.fromHex("#CCE2CB")),
@@ -51,7 +54,8 @@ async function gameSetup() {
     const player: GameObj = Player.createPlayer(
       k,
       level1SpawnPoints.player[0].x,
-      level1SpawnPoints.player[0].y
+      level1SpawnPoints.player[0].y,
+      level1Music
     );
 
     Player.setPlayerControls(k, player as PlayerGameObj);
@@ -87,6 +91,7 @@ async function gameSetup() {
     globalGameState.setCurrentScene("level-2");
     globalGameState.setNextScene("level-1");
     k.setGravity(2100);
+    const level2Music = k.play("level-2-music", { loop: true });
     k.add([
       k.rect(k.width(), k.height()),
       k.color(k.Color.fromHex("#CCE2CB")),
@@ -97,7 +102,8 @@ async function gameSetup() {
     const player: GameObj = Player.createPlayer(
       k,
       level2SpawnPoints.player[0].x,
-      level2SpawnPoints.player[0].y
+      level2SpawnPoints.player[0].y,
+      level2Music
     );
 
     Player.setPlayerControls(k, player as PlayerGameObj);

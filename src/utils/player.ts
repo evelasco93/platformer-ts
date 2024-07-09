@@ -6,7 +6,7 @@ import { globalGameState } from "../common/state";
 // creating Player class to make it cleaner
 export class Player {
   // function to create a new player entity
-  static createPlayer(k: KaboomCtx, posX: number, posY: number): GameObj {
+  static createPlayer(k: KaboomCtx, posX: number, posY: number, currentSong: any): GameObj {
     const player: GameObj = k.make([
       k.sprite("assets", { anim: "playerIdle" }),
       k.area({ shape: new k.Rect(k.vec2(4, 5.9), 8, 10) }),
@@ -35,6 +35,7 @@ export class Player {
 
       if (player.hp() === 0) {
         k.destroy(player);
+        currentSong.stop();
         k.go(globalGameState.currentScene);
         return;
       }
@@ -58,7 +59,8 @@ export class Player {
     });
     // collider function for the exit door
     player.onCollide("exit", () => {
-      k.go("level-2");
+      currentSong.stop();
+      k.go(globalGameState.nextScene);
     });
     // inhaling mechanic
     const inhaleEffect: GameObj = k.add([
@@ -89,7 +91,8 @@ export class Player {
     // resets the player if he falls off the platforms into the bottom of the map
     player.onUpdate(() => {
       if (player.pos.y > 2000) {
-        k.go("level-1");
+        currentSong.stop();
+        k.go(globalGameState.currentScene);
       }
     });
 
