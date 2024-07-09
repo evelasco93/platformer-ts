@@ -7,6 +7,7 @@ import { k } from "./common/kaboomCtx";
 import { createMap } from "./utils/createmap";
 import { Enemy } from "./utils/enemy";
 import { globalGameState } from "./common/state";
+import { scale } from "./common/constants";
 
 // basic settings for the sprite being used for the map
 export const spriteSettings: ISpriteSpecs = {
@@ -28,6 +29,7 @@ export const spriteSettings: ISpriteSpecs = {
 // Function to set up all needed assets for the game
 async function gameSetup() {
   await k.loadSprite("assets", "./platformer-sprite.png", spriteSettings);
+  k.loadSprite("instructions", "./instructions.png");
   k.loadSprite("level-1", "./level-1.png");
   k.loadSprite("level-2", "./level-2.png");
   k.loadSound("level-1-music", "./level-1.mp3");
@@ -50,6 +52,13 @@ async function gameSetup() {
       k.fixed(),
     ]);
     k.add(level1Layout);
+
+    const instructions = k.add([
+      k.sprite("instructions"),
+      k.pos(k.width() / 3.5, k.height() / 5),
+      k.fixed(),
+      "instructions"
+    ]);
 
     const player: GameObj = Player.createPlayer(
       k,
@@ -85,6 +94,11 @@ async function gameSetup() {
         );
       });
     }
+
+    k.onKeyDown(() => {
+      instructions.destroy();
+    });
+
   });
 
   k.scene("level-2", () => {
