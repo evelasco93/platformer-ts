@@ -7,7 +7,6 @@ import { k } from "./common/kaboomCtx";
 import { createMap } from "./utils/createmap";
 import { Enemy } from "./utils/enemy";
 import { globalGameState } from "./common/state";
-import { scale } from "./common/constants";
 
 // basic settings for the sprite being used for the map
 export const spriteSettings: ISpriteSpecs = {

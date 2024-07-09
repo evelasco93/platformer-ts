@@ -1,4 +1,3 @@
-import { k } from "./kaboomCtx";
 import { IAnimFrameSpecs } from "./interfaces";
 
 export class Animations {
